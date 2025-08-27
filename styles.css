@@ -1,0 +1,371 @@
+.box.unreleased-box[style*='enclosure'] {
+    --box-bg: #c10007 !important;
+    --box-title: #ffdf20 !important;
+    --box-desc: white !important;
+}
+/* Greyscale unreleased boxes */
+.unreleased-box {
+    filter: grayscale(1) brightness(1.1) opacity(0.7) !important;
+    pointer-events: none;
+}
+/* Unreleased (greyed out) styles */
+.unreleased,
+.unreleased-btn {
+    filter: grayscale(1) brightness(1.2) opacity(0.6);
+    pointer-events: none;
+}
+.unreleased-btn {
+    background: #bbb !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+.unreleased-note {
+    background: #f3f3f3;
+    border-left: 6px solid #888;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin: 2rem auto 1.5rem auto;
+    max-width: 700px;
+    text-align: center;
+    color: #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.unreleased-note h2 {
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.unreleased-note p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+@font-face {
+    font-family: 'Phantom Sans';
+    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
+        format('woff'),
+      url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Phantom Sans';
+    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
+        format('woff'),
+      url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
+        format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Phantom Sans';
+    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
+        format('woff'),
+      url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
+        format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --hc-red: #ec3750;
+    --hc-dark: #0a0a0a;
+    --hc-darker: #050505;
+    --hc-white: #fff;
+    --hc-gray: #bfc7d5;
+    --box-bg: #fff;
+    --box-title: #ec3750;
+    --box-desc: #444;
+}
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Phantom Sans', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f7f7fa;
+    color: #222;
+}
+p, h2 {
+    align-self: center;
+}
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 1000px;
+}
+.container-wrapper > p {
+    margin: 1rem 0 1rem 0;
+    padding: 0;
+}
+.container-wrapper > .box + p + .box {
+    margin-top: 0.1rem;
+}
+
+.banner {
+    top: -30px;
+    left: 10px;
+    z-index: 1001;
+}
+
+.banner img {
+    height: 4em;
+}
+
+.banner:hover img {
+    animation: wave-flag 0.5s linear infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .banner:hover img {
+        transition: 0.1875s cubic-bezier(0.375, 0, 0.675, 1) transform;
+        transform-origin: top left;
+    }
+}
+
+@keyframes wave-flag {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #ec3750;
+    text-align: center;
+    margin: 0.5rem 0;
+    font-weight: bold;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.flow-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+
+.box {
+    background: var(--box-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+.box-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+}
+.box-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--box-title);
+}
+.box-desc {
+    font-size: 1rem;
+    color: var(--box-desc);
+    margin-bottom: 0;
+    font-weight: normal;
+}
+.box-btn {
+    background: var(--hc-red);
+    color: var(--hc-white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-left: 2rem;
+    box-shadow: 0 2px 8px rgba(236,55,80,0.15);
+    align-self: flex-end;
+}
+.box-btn:hover {
+    background: #ff477e;
+}
+.box-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+.box-img[src$='.svg'] {
+    object-fit: contain;
+    background: transparent;
+}
+@media (max-width: 600px) {
+    .container-wrapper {
+        max-width: 98vw;
+    }
+    .box {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0.4rem;
+    }
+    .box-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 120px;
+        height: auto;
+        align-self: center;
+    }
+    .box-btn {
+        margin-left: 0;
+        margin-top: 1rem;
+        align-self: stretch;
+    }
+}
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    color: #888;
+    font-size: 1rem;
+    background: transparent;
+    margin-top: 3rem;
+}
+.header {
+    background: linear-gradient(135deg, #ec3750 0%, #ff6b6b 50%, #ff8e8e 100%);
+    width: 100%;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 20px rgba(236, 55, 80, 0.3);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-desc {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+.price-tag {
+    display: inline-block;
+    background: #ec3750;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 4px rgba(236, 55, 80, 0.2);
+}
+
+.fulfillment-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.fulfillment-section h2 {
+    color: #ec3750;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.fulfillment-section > p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.payment-methods {
+    text-align: left;
+}
+
+.payment-methods h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #ec3750;
+}
+
+.payment-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.payment-content h4 {
+    color: #ec3750;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.payment-content p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}  
