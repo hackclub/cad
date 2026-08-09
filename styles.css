@@ -435,12 +435,12 @@ h1 {
   color: var(--muted);
 }
 
-.footer a {
+a {
   color: var(--brand);
   font-weight: 700;
 }
 
-.footer a:hover,
+a:hover,
 .fulfillment-note a:hover {
   text-decoration: underline;
 }
